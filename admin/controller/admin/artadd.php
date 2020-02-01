@@ -1,2 +1,2 @@
 <?php
-view('artadd');
+viewadmin('artadd');

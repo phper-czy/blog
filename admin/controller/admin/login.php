@@ -1,2 +1,2 @@
 <?php
-view('login');
+viewadmin('login');

@@ -1,6 +1,6 @@
 <?php
 function message($mess,$url){
-    $url = IN . "?a=" . $url;
+    $url = AD . "?a=" . $url;
     echo <<<JS
     <script>
     alert("{$mess}!");
@@ -8,9 +8,14 @@ function message($mess,$url){
     </script>
 JS;
 }
-//加载静态页的函数
-function view($name){
+//加载后台静态页的函数
+function viewadmin($name){
     $url = "./view/admin/" . $name . ".html";
+    include($url);
+}
+//加载前台静态页的函数
+function viewindex($name){
+    $url = "./view/index/" . $name . ".html";
     include($url);
 }
 

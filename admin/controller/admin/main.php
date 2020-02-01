@@ -1,2 +1,2 @@
 <?php
-view("index");
+viewadmin("index");

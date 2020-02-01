@@ -13,7 +13,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php view('top') ?>
+    <?php viewadmin('top') ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>写文章</h1>
@@ -22,7 +22,7 @@
       <!-- <div class="alert alert-danger">
         <strong>错误！</strong>发生XXX错误
       </div> -->
-      <form class="row" action="<?=IN?>?a=doartadd" method="POST">
+      <form class="row" action="<?=AD?>?a=doartadd" method="POST">
         <div class="col-md-9">
           <div class="form-group">
             <label for="title">标题</label>
@@ -71,7 +71,7 @@
     </div>
   </div>
 
-  <?php view('menu') ?>
+  <?php viewadmin('menu') ?>
 
   <script src="/admin/public/assets/vendors/jquery/jquery.js"></script>
   <script src="/admin/public/assets/vendors/bootstrap/js/bootstrap.js"></script>
