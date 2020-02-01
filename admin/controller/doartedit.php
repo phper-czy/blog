@@ -7,4 +7,4 @@ $oldtitle = $_POST['oldtitle'];
 file_put_contents('./data/arts/' . $oldtitle,$content);
 // 修改原来的文件名
 rename('./data/arts/' . $oldtitle,'./data/arts/' . $title);
-message('修改成功!',"index.php?a=artlist");
+message('修改成功!',"artlist");
