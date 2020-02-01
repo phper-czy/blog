@@ -10,4 +10,4 @@ $action = !empty($_GET['a'])?$_GET['a']:"main";
 if(!in_array($action,$white)){
     check_login();
 }
- include('./controller/' . $action . '.php');
+ include('./controller/admin/' . $action . '.php');
