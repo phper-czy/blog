@@ -2,24 +2,25 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 // var_dump($_POST);exit;
-
-$account = file_get_contents('./data/account');
-// var_dump($account);exit;
-$account = explode("\n", $account); 
-// var_dump($account);exit;
-
-$tmp = $username . ' ' . md5($password);
-
-foreach($account as $v)
-{
-    // 2.4 把用户提交的账号和密码拼出和账号文件中格式一样的字符串
-    // 2.4 判断账号是否正确
-    if($tmp == $v)
-    {
-        // 3. 账号登录，在 SESSION 中保存 name 做为登录成功的标记
-        $_SESSION['username'] = $username;
-        // 4. 提示信息
-        message('登录成功！', '');
-    }
+// 从数据库中获取用户信息
+$link = mysqli_connect("127.0.0.1",'root','root','project','3306');
+if(!$link){
+    echo '数据库连接失败!';
 }
-message('登录或者密码错误！', 'login');
+// 设置字符编码
+mysqli_query($link,'SET NAMES utf8');
+$sql = "SELECT * FROM account WHERE username='{$username}'";
+$rs = mysqli_query($link,$sql);
+$userinfo = mysqli_fetch_assoc($rs);
+// var_dump($userinfo);
+// exit;
+if(empty($userinfo)){
+    message('用户名不存在!','login');
+    exit;
+}elseif($userinfo['password'] == md5($password)){
+    $_SESSION['username'] = $username;
+    message('登录成功!','main');
+}else{
+    message('密码错误!','login');
+}
+
